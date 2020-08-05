@@ -1,38 +1,63 @@
-.App {
+:root {
+  --mainTextColorTwo: #fed0bb;
+  --mainBackground: #7cc6f1;
+  --mainBackgroundTwo: #f17ca1;
+  --mainmainbg: #f3f3f3;
+  --mainTextColor: #050517;
+  --mainAccent: #00c2d1;
+  --mainOther: #1c80f3;
+}
+
+body {
+  color: var(--mainTextColor) !important;
+  font-family: "Lato", sans-serif !important;
+  background: var(--mainmainbg) !important;
+}
+
+.text-title {
+  font-family: "Rowdies", cursive;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+}
+
+.mainLink:hover,
+.mainLink:visited,
+.mainLink:link,
+.mainLink:active {
+  color: #333333;
+  margin: auto;
+  padding: 3px;
+}
+
+.mainLink:hover {
+  text-decoration: underline;
+}
+
+.nav-two {
   text-align: center;
+  background-color: var(--mainBackground);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+i {
+  color: #333333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn-black {
+  background: transparent;
+  text-transform: capitalize;
+  font-size: 0.8rem !important;
+  color: var(--mainTextColor);
+  border-radius: 0 !important;
+  border: 0.1rem solid var(--mainTextColor) !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.btn-black:hover {
+  background: var(--mainTextColor) !important;
+  color: var(--mainmainbg) !important;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-icon {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: var(--mainOther) !important;
 }
