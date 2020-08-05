@@ -34,7 +34,7 @@ export default class Modal extends Component {
                         <strong>$</strong>
                         {price}
                       </h5>
-                      <Link to="/home">
+                      <Link to="/">
                         <ButtonContainer onClick={() => closeModal()}>
                           go back
                         </ButtonContainer>

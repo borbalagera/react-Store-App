@@ -28,12 +28,12 @@ export default class navbar extends Component {
         </nav>
         <nav className="nav-two">
           <span className="nav-item ">
-            <Link to="/home" className="mainLink">
+            <Link to="/" className="mainLink">
               Home
             </Link>
           </span>
           <span className="nav-item ">
-            <Link to="/home" className="mainLink">
+            <Link to="/" className="mainLink">
               Products
             </Link>
           </span>
