@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { ButtonContainer } from "./Button";
 
 export default class navbar extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-sm px-sm-5">
-          <Link to="/">
-            <i className="fas fa-tshirt navbar-brand"></i>
-          </Link>
+        {/* <nav className="navbar px-sm-5">
           <Link to="/cart" className="ml-auto">
             <ButtonContainer>
               wishlist
@@ -25,23 +20,23 @@ export default class navbar extends Component {
               </span>
             </ButtonContainer>
           </Link>
-        </nav>
-        <nav className="nav-two">
-          <span className="nav-item ">
-            <Link to="/" className="mainLink">
-              Home
-            </Link>
-          </span>
+        </nav> */}
+        <nav className="p-1 nav-two mx-auto">
           <span className="nav-item ">
             <Link to="/" className="mainLink">
               Products
             </Link>
           </span>
           <span>
-            <Link to="/" className="mainLink">
-              What's New
+            <Link to="/cart" className="mainLink">
+              My bag
             </Link>
           </span>
+          {/* <span>
+            <Link to="/favorites" className="mainLink">
+              Wishlist
+            </Link>
+          </span> */}
         </nav>
       </div>
     );

@@ -1,14 +1,14 @@
 import React from "react";
 
 export default function CartItem({ item, value }) {
-  const { id, title, img, price, total, count } = item;
+  const { id, title, imgOne, price, total, count } = item;
   const { increment, decrement, removeItem } = value;
   return (
-    <div className="row my-2 text-capitalize text-center">
+    <div className="row my-2 text-center">
       <div className="col-10 mx-auto col-lg-2">
         <img
-          src={img}
-          style={{ width: "5rem", height: "5rem" }}
+          src={imgOne}
+          style={{ width: "6rem", height: "9rem" }}
           className="img-fluid"
           alt="product picture"
         ></img>
@@ -36,9 +36,9 @@ export default function CartItem({ item, value }) {
         </div>
       </div>
       <div className="col-10 mx-auto col-lg-2 ">
-        <div className="cart-icon" onClick={() => removeItem(id)}>
-          <i className="fas fa-trash"></i>
-        </div>
+        <span className="btn btn-black mx-1" onClick={() => removeItem(id)}>
+          x
+        </span>
       </div>
       <div className="col-10 mx-auto col-lg-2 ">
         <strong>item total: $</strong>

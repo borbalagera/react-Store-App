@@ -6,19 +6,31 @@ import PropTypes from "prop-types";
 
 export default class Product extends Component {
   render() {
-    const { id, title, img, price, inCart } = this.props.product;
+    const {
+      id,
+      title,
+      imgOne,
+      price,
+      inCart,
+      inFavorites,
+    } = this.props.product;
     return (
-      <ProductWrapper className="col-9 mx-auto col-md-6 cl-lg-3 my-3">
+      <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-4 align-self-center">
         <div className="card">
           <ProductConsumer>
             {(value) => (
               <div
-                className="img-container p-5"
+                className="img-container"
                 onClick={() => value.handleDetail(id)}
               >
                 <Link to="/details">
-                  <img src={img} alt="product img" className="card-img-top" />
+                  <img
+                    src={imgOne}
+                    alt="product img"
+                    className="card-img-top"
+                  />
                 </Link>
+
                 <button
                   className="cart-btn"
                   disabled={inCart ? true : false}
@@ -33,6 +45,20 @@ export default class Product extends Component {
                     </p>
                   ) : (
                     <p className="mb-0">add to bag</p>
+                  )}
+                </button>
+                <button
+                  className="fav-btn"
+                  onClick={() => {
+                    value.addToFavorites(id);
+                  }}
+                >
+                  {inFavorites ? (
+                    <p className="mb-0" disabled>
+                      wishlisted
+                    </p>
+                  ) : (
+                    <p className="mb-0">wishlist?</p>
                   )}
                 </button>
               </div>
@@ -54,10 +80,12 @@ export default class Product extends Component {
 Product.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number,
-    img: PropTypes.string,
+    imgOne: PropTypes.string,
+    imgTwo: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,
     inCart: PropTypes.bool,
+    inFavorites: PropTypes.bool,
   }).isRequired,
 };
 
@@ -68,7 +96,7 @@ const ProductWrapper = styled.div`
   }
 
   .card-footer {
-    background: transparent;
+    background: var(--mainmainbg);
     border-top: transparent;
     transition: all 1s linear;
   }
@@ -78,7 +106,7 @@ const ProductWrapper = styled.div`
       box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
     }
     .card-footer {
-      background: rgba(245, 245, 245);
+      background: var(--mainmainbg);
     }
   }
   .img-container {
@@ -91,6 +119,20 @@ const ProductWrapper = styled.div`
   .img-container:hover .card-img-top {
     transform: scale(1.1);
   }
+
+  .fav-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.2rem 0.4rem;
+    background-color: var(--mainmainbg);
+    border: 2px solid;
+    border-color: var(--mainTextColor);
+    color: var(--mainTextColor);
+    transition: all 1s linear;
+    box-shadow: none;
+  }
+
   .cart-btn {
     position: absolute;
     bottom: 0;
@@ -98,20 +140,22 @@ const ProductWrapper = styled.div`
     padding: 0.2rem 0.4rem;
     background-color: var(--mainmainbg);
     border: 2px solid;
-    border-color: var(--mainOther);
-    color: var(--mainOther);
+    border-color: var(--mainTextColor);
+    color: var(--mainTextColor);
     transition: all 1s linear;
     box-shadow: none;
   }
 
-  .cart-btn:hover {
-    border-color: var(--mainOther);
+  .cart-btn:hover,
+  .fav-btn:hover {
+    border-color: var(--mainTextColor);
     color: var(--mainmainbg);
-    background-color: var(--mainOther);
+    background-color: var(--mainTextColor);
     cursor: pointer;
   }
 
-  .cart-btn:focus {
+  .cart-btn:focus,
+  .fav-btn:focus {
     outline: none;
   }
 `;

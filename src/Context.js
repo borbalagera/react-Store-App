@@ -11,6 +11,7 @@ class ProductProvider extends Component {
     products: [],
     detailProduct: detailProduct,
     cart: [],
+    favorites: [],
     modalOpen: false,
     modalProduct: detailProduct,
     cartSubTotal: 0,
@@ -60,6 +61,23 @@ class ProductProvider extends Component {
         this.addTotals();
       }
     );
+  };
+
+  addToFavorites = (id) => {
+    let favProducts = [...this.state.products];
+    const index = favProducts.indexOf(this.getItem(id));
+    const product = favProducts[index];
+    if (product.inFavorites === false) {
+      product.inFavorites = true;
+    } else {
+      product.inFavorites = false;
+    }
+    this.setState(() => {
+      return {
+        products: favProducts,
+        favorites: [...this.state.favorites, product],
+      };
+    });
   };
 
   openModal = (id) => {
@@ -176,6 +194,7 @@ class ProductProvider extends Component {
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
+          addToFavorites: this.addToFavorites,
           openModal: this.openModal,
           closeModal: this.closeModal,
           increment: this.increment,

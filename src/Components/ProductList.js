@@ -8,7 +8,10 @@ export default class ProductList extends Component {
       //        <Product></Product>
       <React.Fragment>
         <div className="py-5">
-          <div className="container">
+          <div
+            className="container"
+            style={{ backgroundColor: "var(--mainmainbg)" }}
+          >
             <Title name="our" title="products" />
             <div className="row">
               <ProductConsumer>

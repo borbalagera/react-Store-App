@@ -4,8 +4,8 @@ export const ButtonContainer = styled.button`
   font-variant: small-caps;
   font-size: 1.2rem;
   border: 2px solid black;
-  border-color: ${(props) => (props.cart ? "var(--mainOther)" : "black")};
-  color: ${(props) => (props.cart ? "var(--mainOther)" : "black")};
+  border-color: var(--mainTextColor);
+  color: var(--mainTextColor);
   margin-right: 5px;
   cursor: pointer;
   transition: all 1s linear;
@@ -14,7 +14,7 @@ export const ButtonContainer = styled.button`
   }
 
   &:hover {
-    background: ${(props) => (props.cart ? "var(--mainOther)" : "white")};
-    color: ${(props) => (props.cart ? "white" : "black")};
+    background: var(--mainTextColor);
+    color: var(--mainmainbg);
   }
 `;

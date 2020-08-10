@@ -1,21 +1,16 @@
 :root {
-  --mainTextColorTwo: #fed0bb;
-  --mainBackground: #7cc6f1;
-  --mainBackgroundTwo: #f17ca1;
   --mainmainbg: #f3f3f3;
   --mainTextColor: #050517;
-  --mainAccent: #00c2d1;
-  --mainOther: #1c80f3;
 }
 
 body {
-  color: var(--mainTextColor) !important;
+  color: var(--mainTextColor);
   font-family: "Lato", sans-serif !important;
-  background: var(--mainmainbg) !important;
+  background-image: var(--mainmainbg);
 }
 
 .text-title {
-  font-family: "Rowdies", cursive;
+  font-family: "Rowdies";
   letter-spacing: 0.3rem;
   text-transform: uppercase;
 }
@@ -24,7 +19,7 @@ body {
 .mainLink:visited,
 .mainLink:link,
 .mainLink:active {
-  color: #333333;
+  color: var(--mainmainbg);
   margin: auto;
   padding: 3px;
 }
@@ -34,12 +29,13 @@ body {
 }
 
 .nav-two {
+  background-color: var(--mainTextColor);
+  color: var(--mainmainbg) !important;
+  z-index: 99999;
+  width: 100%;
+  position: fixed;
+  top: 0;
   text-align: center;
-  background-color: var(--mainBackground);
-}
-
-i {
-  color: #333333;
 }
 
 .btn-black {
@@ -59,5 +55,5 @@ i {
 .cart-icon {
   cursor: pointer;
   font-size: 1.2rem;
-  color: var(--mainOther) !important;
+  color: var(--mainTextColor) !important;
 }
